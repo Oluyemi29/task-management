@@ -56,8 +56,8 @@ This app allows users to **sign up, log in, and manage their personal tasks** se
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/YOUR-USERNAME/task-management-app.git
-cd task-management-app
+git clone https://github.com/Oluyemi29/task-management.git
+cd taskmanagement
 
 
 npm install
