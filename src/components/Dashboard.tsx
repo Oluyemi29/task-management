@@ -70,7 +70,7 @@ const Dashboard = ({ alltask }: AllTaskProps) => {
         return eachTask.userId === (session?.user.id as string);
       })
     );
-  }, [alltask,session?.user.id]);
+  }, [alltask, session?.user.id]);
   const from = (currentPage - 1) * taskPerPage;
   const to = from + taskPerPage;
   const pagination = filteredTask.slice(from, to);
@@ -82,15 +82,22 @@ const Dashboard = ({ alltask }: AllTaskProps) => {
     if (value) {
       setFilteredTask(
         alltask.filter((eachTask) => {
-          return eachTask[key as keyof EachTaskProps]
-            .toString()
-            .toLowerCase()
-            .includes(value.toLowerCase());
+          return (
+            eachTask[key as keyof EachTaskProps]
+              .toString()
+              .toLowerCase()
+              .includes(value.toLowerCase()) &&
+            eachTask.userId === (session?.user.id as string)
+          );
         })
       );
       setCurrentPage(1);
     } else {
-      setFilteredTask(alltask);
+      setFilteredTask(
+        alltask.filter((eachTask) => {
+          return eachTask.userId === (session?.user.id as string);
+        })
+      );
     }
   };
   const handleSort = (e: string) => {

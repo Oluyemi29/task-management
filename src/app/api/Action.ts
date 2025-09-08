@@ -189,7 +189,7 @@ export const DeleteTaskAction = async ({ id, userId }: DeleteTask) => {
         success: false,
         message: "All fields are required",
       };
-    } 
+    }
     const existTask = await prisma.task.findUnique({
       where: {
         id,
