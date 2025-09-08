@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Task Management Web App
 
-## Getting Started
+A full-stack **Task Management Application** built with **Next.js, MongoDB, and JWT Authentication**.  
+This app allows users to **sign up, log in, and manage their personal tasks** securely with features like search, filter, and pagination.
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+### 🔐 Authentication
+- User registration and login with **email + password**.
+- Passwords hashed securely with **bcrypt**.
+- Authentication handled using **JWT**.
+- Users can only access their own tasks.
+
+### ✅ Task Management (CRUD)
+- Create, view, update, and delete tasks.
+- Each task includes:
+  - `title`
+  - `description`
+  - `status` (**pending** / **done**)
+  - `createdAt`
+- Only the creator of a task can update or delete it.
+
+### 🔎 Search, Filter & Pagination
+- Search tasks by **title** or **description**.
+- Filter tasks.
+- Search and filter work together.
+- Pagination .
+
+### 🎨 Frontend
+- Built with **Next.js (App Router)**.
+- Pages:
+  - Login/Register
+  - Dashboard (task list)
+  - Upload Task Form (create/edit task)
+- Clean & minimal UI using **TailwindCSS + Shadcn UI + Hero UI**.
+- Proper **loading & error states**.
+
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js, React, TailwindCSS, Shadcn UI, Hero UI
+- **Backend:** Next.js API Routes 
+- **Database:** MongoDB Atlas
+- **Authentication:** JWT + bcrypt
+- **State/Data:** Session
+- **Deployment:** Vercel + MongoDB Atlas
+
+---
+
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repo
 ```bash
+git clone https://github.com/YOUR-USERNAME/task-management-app.git
+cd task-management-app
+
+
+npm install
+# or
+yarn install
+
+- Create a .env.local file in the root directory and add:
+DATABASE_URL=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_jwt_secret
+NEXTAUTH_URL=http://localhost:3000
+
+
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
