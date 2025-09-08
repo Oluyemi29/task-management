@@ -1,5 +1,5 @@
 "use client";
-import React, { Key, useEffect, useState } from "react";
+import React, { Key, useState } from "react";
 import {
   Card,
   CardContent,
@@ -62,15 +62,8 @@ const Dashboard = ({ alltask }: AllTaskProps) => {
     title: "",
     description: "",
   });
-  const [filteredTask, setFilteredTask] = useState<EachTaskProps[]>([]);
+  const [filteredTask, setFilteredTask] = useState(alltask);
 
-  useEffect(() => {
-    setFilteredTask(
-      alltask.filter((eachTask) => {
-        return eachTask.userId === (session?.user.id as string);
-      })
-    );
-  }, [alltask, session?.user.id]);
   const from = (currentPage - 1) * taskPerPage;
   const to = from + taskPerPage;
   const pagination = filteredTask.slice(from, to);
@@ -82,22 +75,15 @@ const Dashboard = ({ alltask }: AllTaskProps) => {
     if (value) {
       setFilteredTask(
         alltask.filter((eachTask) => {
-          return (
-            eachTask[key as keyof EachTaskProps]
-              .toString()
-              .toLowerCase()
-              .includes(value.toLowerCase()) &&
-            eachTask.userId === (session?.user.id as string)
-          );
+          return eachTask[key as keyof EachTaskProps]
+            .toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
         })
       );
       setCurrentPage(1);
     } else {
-      setFilteredTask(
-        alltask.filter((eachTask) => {
-          return eachTask.userId === (session?.user.id as string);
-        })
-      );
+      setFilteredTask(alltask);
     }
   };
   const handleSort = (e: string) => {
