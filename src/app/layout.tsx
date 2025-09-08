@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     title: "Task Management System",
     description:
       "This is a site for that allow Creating Retreiving Updating and Deleting task",
-    url: "https://task-management.vercel.app",
+    url: "https://task-management-gilt-xi.vercel.app",
     siteName: "Task Management System",
     images: {
-      url: "/rs.jpg",
+      url: "/task.png",
       width: 1200,
       height: 630,
       alt: "Task Management System",
